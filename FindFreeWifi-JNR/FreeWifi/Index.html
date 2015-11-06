@@ -8,15 +8,30 @@
     <script src="https://code.angularjs.org/2.0.0-alpha.44/http.dev.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script>
-      System.config({
-        transpiler: 'typescript',
-        typescriptOptions: { emitDecoratorMetadata: true }
-      });
-      System.import('./app.ts');
+        System.config({
+            transpiler: 'typescript',
+            typescriptOptions: { emitDecoratorMetadata: true }
+        });
+        System.import('./app.ts');
     </script>
 </head>
 <body>
-    <my-app>loading...</my-app>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Free Wifi Locations</a>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Free Wifi Locations</h1>
+            <p>Welcome to the free wifi location.</p>
+            <p>Use this site to locate a free wifi location in South Africa</p>
+        </div>
+    </div>
+    <div class="container">
+        <my-app>loading...</my-app>
+    </div>
 </body>
 </html>
-

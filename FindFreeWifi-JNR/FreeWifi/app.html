@@ -1,7 +1,28 @@
-﻿<select>
-    <option *ng-for="#location of locations;" value="{{location.Id}}" (click)="displayNearBy(location)">{{location.Name}} </option>
-</select>
-
-<ul>
-    <li *ng-for="#nearbyPlaces of city;"> {{nearbyPlaces.Name}}</li>
-</ul>
+﻿<div class="container">
+    <div class="row">
+        <h2>Please select a city</h2>
+        <select>
+            <option>Select a City</option>
+            <option *ng-for="#location of locations;" value="{{location.Id}}" (click)="displayNearBy(location)">{{location.Name}} </option>
+        </select>
+    </div>
+    <div class="row">
+        <h3>Locations avaliable in selected area</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr class="success">
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Type of Place</th>
+                </tr>              
+            </thead>
+            <tbody>
+                <tr *ng-for="#nearbyPlaces of city;">
+                    <td>{{nearbyPlaces.Name}}</td>
+                    <td>{{nearbyPlaces.Address}}</td>
+                    <td>{{nearbyPlaces.CoLocatedService}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
