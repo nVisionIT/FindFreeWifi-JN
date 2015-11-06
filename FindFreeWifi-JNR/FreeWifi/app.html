@@ -1,3 +1,7 @@
-﻿<select *ng-for="#location of locations;">
-    <option value="{{location.Id}}">{{location.Name}}</option>
+﻿<select>
+    <option *ng-for="#location of locations;" value="{{location.Id}}" (click)="displayNearBy(location)">{{location.Name}} </option>
 </select>
+
+<ul>
+    <li *ng-for="#nearbyPlaces of city;"> {{nearbyPlaces.Name}}</li>
+</ul>

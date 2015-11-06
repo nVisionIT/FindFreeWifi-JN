@@ -10,12 +10,27 @@ import {HTTP_PROVIDERS, Http} from 'angular2/http';
     })
 class MyAppComponent {
     locations: Object;
-    debugger;
+    city: Object;
+    hrequest: Http;
+    
     constructor(http: Http) {
         http.get('http://www.findfreewifi.co.za/publicjson/getcities').subscribe(res => {
-            this.locations = res.data;
-        });     
-    }   
+            this.locations = res.json().data;       
+        });
+        this.hrequest = http;    
+    } 
+
+    displayNearBy(obj: Object) {
+        debugger;
+        var link = 'http://www.findfreewifi.co.za/publicjson/Locations?cityName=' + obj.Name;
+        this.hrequest.get(link).subscribe(res => {
+            this.city = res.json().data;
+        }); 
+
+    }
+    
+      
 }
+
 
 bootstrap(MyAppComponent);
